@@ -1,5 +1,10 @@
-import sublime, sublime_plugin
-import re, os, os.path
+import re
+import os
+import os.path
+
+import sublime
+import sublime_plugin
+
 
 def walkParentsForFile(checkedPath, destPath):
     while (True):
@@ -14,6 +19,8 @@ def walkParentsForFile(checkedPath, destPath):
 
 
 class OpenClipboardPathCommand(sublime_plugin.WindowCommand):
+    """Open clipboard path command."""
+
     def resolvePath(self, path):
         if (path.startswith('file://')):
             path = path[len('file://'):]
@@ -73,9 +80,21 @@ class OpenClipboardPathCommand(sublime_plugin.WindowCommand):
     def is_enabled(self):
         return sublime.get_clipboard().strip()
 
+
 class CopyBasenameAndLineCommand(sublime_plugin.TextCommand):
+    """Copy basename and line command."""
+
     def run(self, edit):
         if self.view.file_name():
             basename = os.path.basename(self.view.file_name())
             line = self.view.rowcol(self.view.sel()[0].a)[0] + 1
             sublime.set_clipboard('%s:%s' % (basename, line))
+
+
+class CopyFilePathAndLineCommand(sublime_plugin.TextCommand):
+    """Copy file path and line command."""
+
+    def run(self, edit):
+        if self.view.file_name():
+            line = self.view.rowcol(self.view.sel()[0].a)[0] + 1
+            sublime.set_clipboard('%s:%s' % (self.view.file_name(), line))

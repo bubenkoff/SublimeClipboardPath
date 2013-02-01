@@ -1,3 +1,4 @@
 [
-	{ "keys": ["super+shift+o"], "command": "open_clipboard_path"}
+	{ "keys": ["super+shift+o"], "command": "open_clipboard_path"},
+    { "keys": ["alt+shift+c"], "command": "copy_file_path_and_line" }
 ]

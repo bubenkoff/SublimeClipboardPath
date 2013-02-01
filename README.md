@@ -4,7 +4,7 @@ Open "filename:line" paths from the clipboard or copy the caret position to the 
 
 # Commands
 
-This plugin contains two commands:
+This plugin contains such commands:
 
 ## open_clipboard_path
 
@@ -23,3 +23,8 @@ The path can also have a line number appended after a semicolon; "Path:123" or b
 
 This command, available in the context menu, copies the position of the caret to the clipboard using the format "FileName:Line".
 It is useful e.g. to set breakpoints in gdb by selecting this command and doing "b [paste]" in the text debugger.
+
+## copy_file_path_and_line
+
+This command, available in the context menu, copies the position of the caret to the clipboard using the format "FilePath:Line".
+It is useful e.g. to set send someone you want to show code to.
