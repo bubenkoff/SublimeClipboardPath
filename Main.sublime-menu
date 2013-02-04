@@ -3,8 +3,15 @@
         "id": "file",
         "children":
         [
-            { "command": "open_clipboard_path", "caption": "Open path in clipboard" },
-            { "command": "copy_file_path_and_line", "caption": "Copy \"file_path:line\" to clipboard" }
+            { "caption": "Clipboard path",
+              "mnemonic": "C",
+              "id": "clipboard-path",
+              "children":
+                [
+                    { "command": "open_clipboard_path", "caption": "Open path in clipboard" },
+                    { "command": "copy_file_path_and_line", "caption": "Copy \"file_path:line\" to clipboard" }
+                ]
+            }
         ]
     }
 ]
